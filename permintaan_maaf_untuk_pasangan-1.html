@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+  padding:24px; font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#ffd6e0,#fff1f5,#e8d9ff);
+  color:#3b2630; overflow:hidden;
+}
+.card{
+  width:min(420px,100%); padding:32px 25px; text-align:center;
+  background:rgba(255,255,255,.82); border-radius:28px;
+  box-shadow:0 18px 60px rgba(100,40,70,.18);
+  backdrop-filter:blur(10px);
+}
+.heart{font-size:55px; animation:pulse 1.5s infinite}
+h1{margin:8px 0 15px;font-size:30px}
+p{line-height:1.7;font-size:16px}
+button{
+  border:0; padding:13px 24px; border-radius:999px; margin-top:10px;
+  background:#e85d83;color:white;font-size:15px;cursor:pointer;
+  box-shadow:0 8px 20px rgba(232,93,131,.3)
+}
+#message{display:none;margin-top:20px;padding:18px;border-radius:18px;background:#fff4f7}
+.small{font-size:13px;color:#765b65}
+@keyframes pulse{50%{transform:scale(1.12)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="heart">❤️</div>
+  <h1>Maaf ya...</h1>
+  <p>
+    Aku mau minta maaf atas kesalahan aku. Aku sadar mungkin ada sikap
+    atau perkataan aku yang bikin kamu kecewa, sedih, atau nggak nyaman.
+  </p>
+  <p>
+    Aku nggak mau cuma bilang “maaf” tanpa belajar dari kesalahan itu.
+    Aku akan berusaha memperbaiki diri dan lebih menghargai perasaan kamu.
+  </p>
+  <button onclick="showMessage()">Buka pesan terakhir 💌</button>
+  <div id="message">
+    <p><b>Aku nggak berharap semuanya langsung kembali seperti semula.</b></p>
+    <p>
+      Aku cuma ingin kamu tahu bahwa permintaan maaf ini benar-benar dari hati.
+      Terima kasih sudah pernah bertahan, mengerti, dan memberikan kesempatan.
+    </p>
+    <p>Semoga setelah ini aku bisa menjadi seseorang yang lebih baik. ❤️</p>
+    <div class="small">— Dari seseorang yang masih belajar menjadi lebih baik</div>
+  </div>
+</div>
+<script>
+function showMessage(){
+  document.getElementById("message").style.display="block";
+}
+</script>
+</body>
+</html>
