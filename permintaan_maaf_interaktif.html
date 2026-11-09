@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maaf ya ❤️</title>
+<style>
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:"Trebuchet MS",Arial,sans-serif}
+body{
+  min-height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;
+  background:linear-gradient(135deg,#ffdbe8,#fff3f7 45%,#e6ddff);
+  color:#4b2c38;position:relative;
+}
+.bg-heart{position:absolute;bottom:-40px;font-size:20px;opacity:.55;animation:floatUp linear forwards;pointer-events:none}
+@keyframes floatUp{
+  from{transform:translateY(0) rotate(0deg);opacity:0}
+  15%{opacity:.6}to{transform:translateY(-110vh) rotate(360deg);opacity:0}
+}
+.card{
+  width:min(430px,92vw);max-height:90vh;overflow:auto;text-align:center;
+  padding:30px 23px;background:rgba(255,255,255,.78);
+  border:2px solid rgba(255,255,255,.9);border-radius:30px;
+  box-shadow:0 25px 80px rgba(100,50,80,.2);backdrop-filter:blur(14px);
+  position:relative;z-index:2;animation:appear .8s ease;
+}
+@keyframes appear{from{opacity:0;transform:translateY(30px) scale(.95)}to{opacity:1;transform:none}}
+.emoji{font-size:64px;animation:bounce 1.8s infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px) rotate(4deg)}}
+h1{margin:4px 0 10px;font-size:30px}
+.subtitle{font-size:14px;color:#876572;margin-bottom:20px}
+.message{
+  background:#fff7fa;border-radius:22px;padding:20px;text-align:left;
+  line-height:1.75;font-size:15px;margin:18px 0;
+}
+button{
+  border:0;border-radius:999px;padding:13px 22px;margin:6px;
+  font-size:15px;font-weight:bold;cursor:pointer;transition:.2s;
+  background:#e96b91;color:white;box-shadow:0 8px 20px rgba(233,107,145,.25);
+}
+button:hover{transform:translateY(-3px) scale(1.03)}
+button.secondary{background:#fff;color:#d6537c;border:2px solid #f1b1c4}
+#surprise{display:none;animation:pop .5s ease;margin-top:15px}
+@keyframes pop{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.letter{
+  margin-top:14px;background:#fff;border-radius:18px;padding:16px;
+  border:1px dashed #e9a0b7;line-height:1.7;
+}
+#forgive{display:none;font-size:17px;font-weight:bold;margin-top:15px;color:#d34e75}
+.footer{font-size:12px;color:#9a7b86;margin-top:18px}
+.confetti{position:fixed;top:-20px;z-index:10;pointer-events:none;animation:fall 1.7s linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="emoji">🥺💗</div>
+  <h1>Maaf ya...</h1>
+  <div class="subtitle">Aku bikin sesuatu kecil khusus buat kamu.</div>
+
+  <div class="message">
+    Aku mau minta maaf atas kesalahan aku. Aku sadar mungkin ada perkataan
+    atau sikapku yang bikin kamu kecewa, sedih, atau nggak nyaman.
+    <br><br>
+    Aku nggak mau permintaan maaf ini cuma jadi kata-kata.
+    Aku mau belajar dari kesalahanku dan berusaha menjadi lebih baik.
+    Aku juga nggak mau memaksa kamu untuk langsung memaafkan aku.
+  </div>
+
+  <button onclick="openSurprise()">💌 Buka pesan kecil</button>
+  <button class="secondary" onclick="makeHearts()">❤️ Klik aku</button>
+
+  <div id="surprise">
+    <div class="letter">
+      <b>Kalau boleh jujur...</b><br><br>
+      Aku masih menghargai kamu dan semua hal baik yang pernah kita lalui.
+      Terima kasih karena pernah memberikan waktu, perhatian, dan kesempatan.
+      <br><br>
+      Aku minta maaf. Semoga setelah ini aku bisa menunjukkan perubahan,
+      bukan cuma menjanjikannya. ❤️
+    </div>
+    <div id="forgive">Terima kasih sudah membaca sampai sini 🥹❤️</div>
+  </div>
+
+  <div class="footer">Made with a little bit of HTML, CSS & JavaScript ✨</div>
+</div>
+
+<script>
+function openSurprise(){
+  const box=document.getElementById("surprise");
+  box.style.display="block";
+  document.getElementById("forgive").style.display="block";
+  burst();
+}
+
+function makeHearts(){
+  for(let i=0;i<18;i++){
+    setTimeout(()=>{
+      const h=document.createElement("div");
+      h.className="bg-heart";
+      h.textContent=["❤️","💗","💕","✨","🥺"][Math.floor(Math.random()*5)];
+      h.style.left=Math.random()*100+"vw";
+      h.style.fontSize=(15+Math.random()*25)+"px";
+      h.style.animationDuration=(2.5+Math.random()*2.5)+"s";
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),5500);
+    },i*80);
+  }
+}
+
+function burst(){
+  const symbols=["❤️","💗","✨","💕","🌸"];
+  for(let i=0;i<35;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.textContent=symbols[Math.floor(Math.random()*symbols.length)];
+    c.style.left=Math.random()*100+"vw";
+    c.style.fontSize=(12+Math.random()*18)+"px";
+    c.style.animationDuration=(1.2+Math.random()*1.2)+"s";
+    c.style.animationDelay=(Math.random()*.5)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+
+// Hati kecil muncul perlahan di background
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="bg-heart";
+  h.textContent=["♡","♥","✨"][Math.floor(Math.random()*3)];
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(12+Math.random()*20)+"px";
+  h.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),10000);
+},900);
+</script>
+
+</body>
+</html>
